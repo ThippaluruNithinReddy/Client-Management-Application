@@ -1,0 +1,55 @@
+<h2 mat-dialog-title>Meeting Details</h2>
+<mat-dialog-content>
+    <div>
+        <form #projectForm="ngForm" (ngSubmit)="onSave(data)" novalidate>
+            <div class="mb-3">
+                <label for="meetingId" class="form-label">Meeting ID</label>
+                <input type="text" class="form-control" style="width: 40rem;" id="meetingd" name="meetingId"
+                    [(ngModel)]="data.meetingId" required>
+                <div *ngIf="projectForm.submitted && projectForm.controls['meetingId'].errors" class="text-danger">
+                    Meeting ID is required
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="clientId" class="form-label">Client ID</label>
+                <input type="text" class="form-control" id="clientId" name="clientId" [(ngModel)]="data.clientId"
+                    required>
+                <div *ngIf="projectForm.submitted && projectForm.controls['clientId'].errors" class="text-danger">
+                    Client ID is required
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="persons" class="form-label">Persons</label>
+                <input type="text" class="form-control" id="persons" name="persons" [(ngModel)]="data.persons"
+                    required>
+                <div *ngIf="projectForm.submitted && projectForm.controls['persons'].errors" class="text-danger">
+                    Persons is required
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="date" class="form-label">Date</label>
+                <input type="text" class="form-control" id="date" name="date" [(ngModel)]="data.date"
+                    required>
+                <div *ngIf="projectForm.submitted && projectForm.controls['date'].errors" class="text-danger">
+                    Date is required
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="status" class="form-label">Status</label>
+                <input type="text" class="form-control" id="status" name="status" [(ngModel)]="data.status"
+                    required>
+                <div *ngIf="projectForm.submitted && projectForm.controls['status'].errors" class="text-danger">
+                    Status is required
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <button type="submit" class="btn btn-dark">Submit</button>
+            </div>
+        </form>
+    </div>
+</mat-dialog-content>

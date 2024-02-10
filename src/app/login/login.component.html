@@ -1,0 +1,35 @@
+<!-- page content -->
+<div class="container mt-5">
+    <!-- login content -->
+    <div class="d-flex justify-content-center">
+        <div class="card w-75">
+            <div class="card-body">
+                <app-registeruser *ngIf="showRegister"></app-registeruser>
+                <form #loginForm="ngForm" (ngSubmit)="onLogin(loginForm)" *ngIf="!showRegister" novalidate>
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text" class="form-control" id="username" name="username"
+                            [(ngModel)]="user.username" required>
+                        <div *ngIf="loginForm.submitted && loginForm.controls['username'].errors" class="text-danger">
+                            Username is required
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password" name="password"
+                            [(ngModel)]="user.password" required>
+                        <div *ngIf="loginForm.submitted && loginForm.controls['password'].errors" class="text-danger">
+                            Password is required
+                        </div>
+                    </div>
+                    <div class="row">
+                        <button type="submit" class="btn btn-dark col-md-5 mx-3">Login</button>
+                        <button type="button" class="btn btn-primary col-md-5 mx-4"
+                            (click)="openRegister()">Register</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+
+
+<div class="container">
+    <div class="project-info">
+      <p>Project Name: Client Management Application</p>
+      <p>Developer Name: Thippaluru Nithin Reddy</p>
+    </div>
+    <button class="start-button" (click)="startButtonClick()">Start Button</button>
+  </div>
+  
+  <app-login *ngIf="showLoginPopup" (closeModal)="closeLogin()"></app-login>

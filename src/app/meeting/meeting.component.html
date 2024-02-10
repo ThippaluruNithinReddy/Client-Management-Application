@@ -1,0 +1,26 @@
+<div class="container">
+    <!-- this is for meetings -->
+
+
+    <div class="my-5 w-100 d-flex justify-content-between">
+        <button class="btn btn-success" (click)="setViewProjectVisible()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M2 12s5-8 10-8s10 8 10 8s-5 8-10 8s-10-8-10-8"/>
+          </svg>View
+            Meeting</button>
+
+            <button class="btn btn-info px-3" (click)="setCreateProjectVisible()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="16" rx="2" ry="2"/>
+                <line x1="12" y1="2" x2="12" y2="22"/>
+                <line x1="20" y1="12" x2="4" y2="12"/>
+              </svg>Create
+                Meeting</button>   
+     </div>
+
+    <!-- to create new project -->
+    <app-createmeeting *ngIf="!viewProject"></app-createmeeting>
+
+    <!-- to view the project -->
+    <app-listmeeting (deleteData)="deleteProject($event)" (viewData)="viewProjecDetails($event)"
+        (modifyData)="modifyProjectDetils($event)" *ngIf="viewProject"></app-listmeeting>
+</div>
